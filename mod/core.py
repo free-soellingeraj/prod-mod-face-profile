@@ -25,7 +25,7 @@ def get_y_fn(fp):
 
 # Cell
 class Deployment:
-    def __init__(self, base_directory, context):
+    def __init__(self, base_directory:str, context):
         """
         Initialisation method for the deployment. It can for example be used for loading modules that have to be kept in
         memory or setting up connections. Load your external model files (such as pickles or .h5 files) here.
@@ -41,14 +41,16 @@ class Deployment:
                     You can also access those as normal environment variables via os.environ
         """
         print("Loading face segmentation model.")
-        self.mod_fp = base_directory/'checkpoint_20201007'
+        print('base_directory', base_directory)
+        print('context', context)
+        self.basedir = Path(base_directory)
+        self.mod_fp = self.basedir/'checkpoint_20201007'
         self.output_classes = [
             'Background/undefined', 'Lips', 'Eyes', 'Nose', 'Hair',
             'Ears', 'Eyebrows', 'Teeth', 'General face', 'Facial hair',
             'Specs/sunglasses'
         ]
         self.size = 224
-        self.basedir = Path(base_directory)
         self.mod_fp = self.basedir/"checkpoint_20201007"
         self.model = TrainedSegmentationModel(
             mod_fp=self.mod_fp,
