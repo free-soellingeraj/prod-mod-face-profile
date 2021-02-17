@@ -3,12 +3,12 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"get_y_fn": "00_core.ipynb",
-         "UbiDeployment": "00_core.ipynb"}
+         "Deployment": "00_core.ipynb"}
 
 modules = ["core.py"]
 
-doc_url = "https://free-soellingeraj.github.io/prod-mod-face-profile/"
+doc_url = "https://free-soellingeraj.github.io/mod/"
 
-git_url = "https://github.com/free-soellingeraj/prod-mod-face-profile/tree/master/"
+git_url = "https://github.com/free-soellingeraj/mod/tree/master/"
 
 def custom_doc_links(name): return None
