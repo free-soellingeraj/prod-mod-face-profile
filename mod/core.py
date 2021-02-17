@@ -135,4 +135,7 @@ class Deployment:
         row = profile.get_profile()
         row['model_id'] = self.mod_fp
 
-        return {'row': row, 'img':outimg.img}
+        return {
+            'row': row,
+            'img': outimg.img.tolist()
+        }
