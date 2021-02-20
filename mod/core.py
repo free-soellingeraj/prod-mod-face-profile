@@ -6,6 +6,7 @@ __all__ = ['Deployment']
 import sys; import os
 from pathlib import Path
 import io
+import json
 import skimage
 from skimage import color
 import matplotlib.pyplot as plt
@@ -49,6 +50,10 @@ class Deployment:
             'Ears', 'Eyebrows', 'Teeth', 'General face', 'Facial hair',
             'Specs/sunglasses'
         ]
+        OUTPUT_SPEC_FP = Path(self.basedir)/'ubiops_output_spec.json'
+        with open(OUTPUT_SPEC_FP) as f:
+            self.output_spec = json.load(f)
+        self.output_mapping = {obj['name']: obj['id'] for obj in self.output_spec}
         self.size = 224
 
         self.model = TrainedSegmentationModel(
@@ -136,9 +141,9 @@ class Deployment:
         plt.savefig(outfp, format='jpeg')
         outimg = MaskedImg()
         outimg.load_from_file(fn=outfp)
-        outfp.unlink()
 
         row = profile.get_profile()
         row['model_id'] = str(self.mod_fp) # for ubiops output type str
+        row = {**row, **{'img': str(outfp)}}
 
-        return {**row, **{'img': str(outfp)}}
+        return {self.output_mapping[k]: v for k,v in row.items()}
