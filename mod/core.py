@@ -8,6 +8,8 @@ from pathlib import Path
 import io
 import skimage
 from skimage import color
+import matplotlib.pyplot as plt
+import numpy as np
 
 from prcvd.img.core import (
     TrainedSegmentationModel, MaskedImg
@@ -15,6 +17,7 @@ from prcvd.img.core import (
 from prcvd.img.face import (
     FacialProfile
 )
+
 
 # Cell
 class Deployment:
