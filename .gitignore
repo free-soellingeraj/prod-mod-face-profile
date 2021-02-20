@@ -141,3 +141,5 @@ checklink/cookies.txt
 
 deployment_package
 *.zip
+*.pkl
+*.pth

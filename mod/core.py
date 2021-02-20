@@ -8,6 +8,7 @@ from pathlib import Path
 import io
 import skimage
 from skimage import color
+
 from prcvd.img.core import (
     TrainedSegmentationModel, MaskedImg
 )
@@ -32,20 +33,21 @@ class Deployment:
                 - environment_variables (str): the custom environment variables configured for the deployment.
                     You can also access those as normal environment variables via os.environ
         """
-        global get_y_fn
-        get_y_fn = lambda x: print('prod')
+        # global get_y_fn
+        # get_y_fn = lambda x: print('prod')
         print("Loading face segmentation model.")
         print('base_directory', base_directory)
         print('context', context)
         self.basedir = Path(base_directory)
-        self.mod_fp = self.basedir/'checkpoint_20201007'
+        self.mod_fp = self.basedir/'model1.pkl'
+        # self.mod_fp = self.basedir/'model1'
         self.output_classes = [
             'Background/undefined', 'Lips', 'Eyes', 'Nose', 'Hair',
             'Ears', 'Eyebrows', 'Teeth', 'General face', 'Facial hair',
             'Specs/sunglasses'
         ]
         self.size = 224
-        self.mod_fp = self.basedir/"checkpoint_20201007"
+
         self.model = TrainedSegmentationModel(
             mod_fp=self.mod_fp,
             input_size=self.size,
@@ -71,7 +73,7 @@ class Deployment:
         img = MaskedImg()
         img.load_from_nparray(
             data['img']
-        ) # possibly need to tx list -> np
+        ) # TODO: possibly need to tx list -> np
 
         try:
             profile = FacialProfile(
@@ -133,9 +135,6 @@ class Deployment:
         outfp.unlink()
 
         row = profile.get_profile()
-        row['model_id'] = self.mod_fp
+        row['model_id'] = str(self.mod_fp) # for ubiops output type str
 
-        return {
-            'row': row,
-            'img': outimg.img.tolist()
-        }
+        return {**row, **{'img': str(outfp)}}
