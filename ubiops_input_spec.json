@@ -1,0 +1,26 @@
+[
+    {
+        "name": "img", 
+        "data_type": {
+            "label": "Blob (file)", 
+            "value": "blob"
+        }, "id": "0000"}, 
+    {
+        "name": "sampling_strategy",
+        "data_type": {
+            "label": "String",
+            "value": "string"
+        }, "id": "0001"},
+    {
+        "name": "align_face",
+        "data_type": {
+            "label": "Boolean",
+            "value": "bool"
+        }, "id": "0002"},
+    {
+        "name": "num_attempts",
+        "data_type": {
+            "label": "Integer",
+            "value": "int"
+        }, "id": "0003"}
+]
