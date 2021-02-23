@@ -5,7 +5,7 @@ __all__ = ['RequestData', 'Client']
 # Cell
 import os
 import requests
-from prcvd.exceptions import  (
+from ..exceptions import  (
     UnexpectedInputProvided, ExpectedInputMissing,
     DataTypeNotImplemented
 )
