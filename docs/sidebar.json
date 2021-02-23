@@ -2,6 +2,10 @@
   "mod": {
     "Overview": "/",
     "core": "core.html",
-    "client": "client.html"
+    "client": "client.html",
+    "prcvd.interfaces.types": "interfaces_types.html",
+    "prcvd.serving.ubiops": "serving_ubiops.html",
+    "exceptions": "exceptions.html",
+    "Title": "serving_client.html"
   }
 }

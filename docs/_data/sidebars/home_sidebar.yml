@@ -15,6 +15,18 @@ entries:
     - output: web,pdf
       title: client
       url: client.html
+    - output: web,pdf
+      title: prcvd.interfaces.types
+      url: interfaces_types.html
+    - output: web,pdf
+      title: prcvd.serving.ubiops
+      url: serving_ubiops.html
+    - output: web,pdf
+      title: exceptions
+      url: exceptions.html
+    - output: web,pdf
+      title: Title
+      url: serving_client.html
     output: web
     title: mod
   output: web

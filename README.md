@@ -1,10 +1,11 @@
 # Production Repo for Face Profile
-This repo contains the code to develop the facial model REST endpoint.  The endpoints will take in a portrait of a human face.  It will be deployed to UbiOps deployments which makes it available as a REST endpoint.
+> This repo contains the code to develop the facial model REST endpoint.  The endpoints will take in a portrait of a human face.  It will be deployed to UbiOps deployments which makes it available as a REST endpoint.
+
 
 ## Instructions
 1. clone this repo
 2. configure `00_core.ipynb` to fit your stack / use case
-3. execute cells
+3. execute cells: the cells will handle the deployment
 
 ### Model Files (e.g. `depoyment_package/model1.pkl`)
 Copy your model into `./deployment_package/`, call it `model1.pkl`
