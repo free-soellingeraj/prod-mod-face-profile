@@ -1,0 +1,7 @@
+{
+  "mod": {
+    "Overview": "/",
+    "core": "core.html",
+    "client": "client.html"
+  }
+}
