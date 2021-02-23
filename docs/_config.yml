@@ -1,0 +1,66 @@
+repository: free-soellingeraj/mod
+output: web
+topnav_title: mod
+site_title: mod
+company_name: Aaron Soellinger
+description: "Productionizing work described here: https://blog.prcvd.ai/research/perception/image/2020/10/12/Training-a-Face-Segmentation-Model-for-Automatic-Skin-Tone-Detection.html"
+# Set to false to disable KaTeX math
+use_math: true
+# Add Google analytics id if you have one and want to use it here
+google_analytics:
+# See http://nbdev.fast.ai/search for help with adding Search
+google_search:
+
+host: 127.0.0.1
+# the preview server used. Leave as is.
+port: 4000
+# the port where the preview is rendered.
+
+exclude:
+  - .idea/
+  - .gitignore
+  - vendor
+ 
+exclude: [vendor]
+
+highlighter: rouge
+markdown: kramdown
+kramdown:
+ input: GFM
+ auto_ids: true
+ hard_wrap: false
+ syntax_highlighter: rouge
+
+collections:
+  tooltips:
+    output: false
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      comments: true
+      search: true
+      sidebar: home_sidebar
+      topnav: topnav
+  -
+    scope:
+      path: ""
+      type: "tooltips"
+    values:
+      layout: "page"
+      comments: true
+      search: true
+      tooltip: true
+
+sidebars:
+- home_sidebar
+
+plugins:
+    - jekyll-remote-theme
+    
+remote_theme: fastai/nbdev-jekyll-theme
+baseurl: /mod/
