@@ -12,6 +12,8 @@ from skimage import color
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Cell
+#dontest
 from prcvd.img.core import (
     TrainedSegmentationModel, MaskedImg
 )
@@ -21,6 +23,7 @@ from prcvd.img.face import (
 from prcvd.core import json_to_dict
 
 # Cell
+#dontest
 class Deployment:
     def __init__(self, base_directory:str, context):
         """
