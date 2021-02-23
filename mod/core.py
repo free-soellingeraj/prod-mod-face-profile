@@ -18,7 +18,7 @@ from prcvd.img.core import (
 from prcvd.img.face import (
     FacialProfile
 )
-
+from prcvd.core import json_to_dict
 
 # Cell
 class Deployment:
@@ -79,9 +79,6 @@ class Deployment:
             with plain output, it is a string. In this example, a dictionary with the key: output.
         """
         img = MaskedImg()
-        # img.load_from_nparray(
-        #     data
-        # ) # TODO: possibly need to tx list -> np
         img.load_from_file(data['img'])
 
         try:
